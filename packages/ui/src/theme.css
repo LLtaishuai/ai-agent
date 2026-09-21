@@ -1,7 +1,11 @@
 /**
- * 全仓库共享的 Tailwind 设计令牌（Tailwind v4 CSS-first）。
- * 各子站通过 `@import "@repo/tailwind-config/theme.css"` 引入，主题只有这一份来源。
+ * 共享 UI 的设计令牌（Tailwind v4 CSS-first）。
+ * 子站通过 `@import "@repo/ui/theme.css"` 引入，主题只有这一份来源。
  */
+
+/* 关键：以本文件所在目录为基准，显式扫描共享 UI 源码，
+   否则 node_modules 中的 @repo/ui 类名会被 Tailwind 忽略 */
+@source "./**/*.{ts,tsx}";
 
 @theme {
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
@@ -34,6 +38,3 @@
     --foreground: #ededed;
   }
 }
-
-/* 关键：显式扫描共享 UI 包源码，否则 node_modules 中的 @repo/ui 类名会被 Tailwind 忽略 */
-@source "../ui/src";

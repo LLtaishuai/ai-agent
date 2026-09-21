@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import "@repo/tailwind-config/theme.css";
+@import "@repo/ui/theme.css";
 
 /* 应用自身的 base 样式统一放进 @layer base，保证工具类始终能覆盖它们 */
 @layer base {
@@ -15,19 +15,8 @@
   }
 }
 
-.imgDark {
-  display: none;
-}
-
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
-  }
-
-  .imgLight {
-    display: none;
-  }
-  .imgDark {
-    display: unset;
   }
 }
