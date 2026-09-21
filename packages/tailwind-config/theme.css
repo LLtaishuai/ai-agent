@@ -1,0 +1,39 @@
+/**
+ * 全仓库共享的 Tailwind 设计令牌（Tailwind v4 CSS-first）。
+ * 各子站通过 `@import "@repo/tailwind-config/theme.css"` 引入，主题只有这一份来源。
+ */
+
+@theme {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  --color-brand-50: oklch(0.97 0.02 264);
+  --color-brand-100: oklch(0.93 0.045 264);
+  --color-brand-200: oklch(0.87 0.07 264);
+  --color-brand-300: oklch(0.78 0.12 264);
+  --color-brand-500: oklch(0.58 0.2 264);
+  --color-brand-600: oklch(0.51 0.2 264);
+  --color-brand-700: oklch(0.44 0.18 264);
+
+  --radius-card: 0.75rem;
+
+  /* 语义色转发到普通 CSS 变量，这样 bg-background / text-foreground 等工具类才存在，
+     同时深浅色切换只改下面 :root 的值即可 */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+/* 关键：显式扫描共享 UI 包源码，否则 node_modules 中的 @repo/ui 类名会被 Tailwind 忽略 */
+@source "../ui/src";

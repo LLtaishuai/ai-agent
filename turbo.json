@@ -1,6 +1,7 @@
 {
   "$schema": "https://turborepo.dev/schema.json",
   "ui": "tui",
+  "globalDependencies": ["packages/ui/**", "packages/tailwind-config/**"],
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
