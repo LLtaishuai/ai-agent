@@ -1,2 +1,14 @@
 @import "tailwindcss";
 @import "@repo/ui/theme.css";
+
+/* 暗色单主题：把画布与正文色挂到 html/body，令牌本身只提供值，不负责落地 */
+@layer base {
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: var(--color-surface-canvas);
+    color: var(--color-content-primary);
+  }
+}
