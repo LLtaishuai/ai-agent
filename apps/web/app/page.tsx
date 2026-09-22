@@ -16,13 +16,13 @@ export default function Home() {
   return (
     <main className="mx-auto flex min-h-screen w-full max-w-3xl flex-col gap-8 px-6 py-16">
       <header className="space-y-2">
-        <p className="text-sm font-medium text-muted-foreground">
+        <p className="text-sm font-medium text-content-tertiary">
           web · @repo/ui
         </p>
         <h1 className="text-3xl font-semibold tracking-tight">
           shadcn/ui 基础组件已在共享包中就绪
         </h1>
-        <p className="text-muted-foreground">
+        <p className="text-content-secondary">
           下面的卡片与表单元素全部来自共享包，样式由 theme.css 的语义令牌驱动。
         </p>
       </header>
@@ -46,7 +46,7 @@ export default function Home() {
 
       <div className="flex items-center gap-3">
         <Separator className="flex-1" />
-        <span className="text-xs font-medium text-muted-foreground">
+        <span className="text-xs font-medium text-content-tertiary">
           Tailwind 探针
         </span>
         <Separator className="flex-1" />

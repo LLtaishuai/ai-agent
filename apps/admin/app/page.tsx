@@ -21,7 +21,7 @@ export default function Home() {
     <main className="mx-auto flex min-h-screen w-full max-w-4xl flex-col gap-8 px-6 py-16">
       <header className="flex flex-wrap items-center justify-between gap-4">
         <div className="space-y-1">
-          <p className="text-sm font-medium text-muted-foreground">
+          <p className="text-sm font-medium text-content-tertiary">
             admin · @repo/ui
           </p>
           <h1 className="text-2xl font-semibold tracking-tight">控制台</h1>
@@ -59,7 +59,7 @@ export default function Home() {
           <Button className="w-full">登录</Button>
           <div className="flex items-center gap-3">
             <Separator className="flex-1" />
-            <span className="text-xs font-medium text-muted-foreground">或</span>
+            <span className="text-xs font-medium text-content-tertiary">或</span>
             <Separator className="flex-1" />
           </div>
           <Button variant="outline" className="w-full">

@@ -18,7 +18,7 @@ export function TailwindDemo({ appName }: TailwindDemoProps) {
   return (
     <section
       data-testid="tailwind-demo"
-      className="w-full max-w-4xl rounded-card bg-[linear-gradient(135deg,rgba(15,23,42,0.96),rgba(49,94,232,0.45))] p-6 shadow-card backdrop-blur md:p-8"
+      className="w-full max-w-4xl rounded-xl bg-[linear-gradient(135deg,rgba(10,15,30,0.96),rgba(49,94,232,0.45))] p-6 shadow-lg backdrop-blur md:p-8"
     >
       <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
         <div className="space-y-4">
@@ -26,7 +26,7 @@ export function TailwindDemo({ appName }: TailwindDemoProps) {
             shared ui · {appName}
           </span>
           <div>
-            <h2 className="text-3xl font-semibold text-white md:text-4xl">
+            <h2 className="text-3xl font-semibold text-content-primary md:text-4xl">
               Tailwind runs in {appName} and still styles shared TSX.
             </h2>
           </div>
@@ -35,7 +35,7 @@ export function TailwindDemo({ appName }: TailwindDemoProps) {
           {features.map((feature) => (
             <div
               key={feature}
-              className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-medium text-slate-100 shadow-sm shadow-black/10"
+              className="rounded-2xl border border-border-default bg-surface-elevated/60 px-4 py-3 text-sm font-medium text-content-secondary shadow-xs"
             >
               {feature}
             </div>

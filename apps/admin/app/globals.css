@@ -1,22 +1,2 @@
 @import "tailwindcss";
 @import "@repo/ui/theme.css";
-
-/* 应用自身的 base 样式统一放进 @layer base，保证工具类始终能覆盖它们 */
-@layer base {
-  html,
-  body {
-    max-width: 100vw;
-    overflow-x: hidden;
-  }
-
-  body {
-    color: var(--foreground);
-    background: var(--background);
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-}
