@@ -22,7 +22,9 @@
     "typescript": "catalog:"
   },
   "dependencies": {
+    "class-variance-authority": "catalog:",
     "clsx": "catalog:",
+    "radix-ui": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
     "tailwind-merge": "catalog:"
