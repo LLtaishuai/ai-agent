@@ -8,6 +8,7 @@ import {
 import { Hono } from 'hono'
 import { HTTPException } from 'hono/http-exception'
 import { validator } from 'hono/validator'
+import { getApiEnv } from './env'
 
 type AppErrorStatus = 400 | 401 | 403 | 404 | 409 | 422 | 500 | 504
 
@@ -22,7 +23,7 @@ class AppError extends Error {
   }
 }
 
-const app = new Hono()
+const app = new Hono<{ Bindings: CloudflareBindings }>()
 
 function createMeta(): ApiMeta {
   return {
@@ -61,11 +62,13 @@ app.notFound((c) => {
 
 const routes = app
   .get('/health', (c) => {
-    const res = buildSuccess({ service: 'api' }, createMeta());
+    const env = getApiEnv(c.env)
+    const res = buildSuccess({ service: 'api', env: env.APP_ENV }, createMeta());
     return c.json(res);
   })
   .post('/rpc/system/ping', validator('json', (value, c) => {
       const parsed = PingRequestSchema.safeParse(value)
+      
 
       if (!parsed.success) {
         const errorMsg = {
@@ -79,8 +82,9 @@ const routes = app
       return parsed.data
     }),
     (c) => {
+      const env = getApiEnv(c.env)
       const payload = c.req.valid('json')
-      const successMsg = { service: 'api', message: `pong, ${payload.name}` } 
+      const successMsg = { service: 'api', message: `pong, ${payload.name}`, env: env.APP_ENV } 
       const res = buildSuccess(successMsg, createMeta());
     return c.json(res);
   });

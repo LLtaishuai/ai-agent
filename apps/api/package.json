@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "@repo/contracts": "workspace:*",
-    "hono": "catalog:"
+    "hono": "catalog:",
+    "zod": "catalog:"
   },
   "devDependencies": {
     "wrangler": "^4.110.0"
